@@ -1,5 +1,7 @@
 if(env.BRANCH_NAME.contains('feature')){
     node {
+        sh "ls -lsa"
+        sh "pwd"
         stage("Build"){
             sh "ng build"
         }
