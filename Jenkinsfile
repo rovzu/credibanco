@@ -1,9 +1,9 @@
 if(env.BRANCH_NAME.contains('feature')){
     stage("Build"){
-        println "Build"
+        sh "ng build"
     }
     stage("Unit Test"){
-        println "Test"
+        sh "ng test"
     }
     stage("Static Code Analysis"){
         println "Static Codes"
