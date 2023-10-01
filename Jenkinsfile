@@ -1,12 +1,14 @@
 if(env.BRANCH_NAME.contains('feature')){
-    stage("Build"){
-        sh "ng build"
-    }
-    stage("Unit Test"){
-        sh "ng test"
-    }
-    stage("Static Code Analysis"){
-        println "Static Codes"
+    node {
+        stage("Build"){
+            sh "ng build"
+        }
+        stage("Unit Test"){
+            sh "ng test"
+        }
+        stage("Static Code Analysis"){
+            println "Static Codes"
+        }
     }
 }
 if(env.BRANCH_NAME == 'develop'){
