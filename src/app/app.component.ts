@@ -10,6 +10,8 @@ export class AppComponent implements OnInit {
 
   constructor() { }
 
+  title = "credibanco"
+
   ngOnInit(): void {
     // Actualizar la fecha y hora cada segundo
     setInterval(() => {

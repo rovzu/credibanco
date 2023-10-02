@@ -2,6 +2,11 @@ pipeline {
     agent any
 
     stages {
+        stage('Unit Test') {
+            steps {
+                bat "ng test"
+            }
+        }
         stage('Deploy') {
             steps {
                 bat "docker build -t santiagoapps4/credibanco ."
