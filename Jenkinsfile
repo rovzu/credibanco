@@ -13,8 +13,6 @@ pipeline {
                 bat "aws elasticbeanstalk update-environment --profile credibanco-dev --application-name credibanco --environment-id e-ckzpcrjxji"
             }
         }
-    }
-    stages {
         stage('Unit Test') {
             steps {
                 when {
