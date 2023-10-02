@@ -1,19 +1,20 @@
 pipeline {
     agent any
-    if(env.BRANCH_NAME == 'master'){
-        environment {
-            AWS_ACCESS_KEY_ID     = credentials('jenkins-aws-secret-key-id')
-            AWS_SECRET_ACCESS_KEY = credentials('jenkins-aws-secret-access-key')
-        }
-        stages {
+    environment {
+        AWS_ACCESS_KEY_ID     = credentials('jenkins-aws-secret-key-id')
+        AWS_SECRET_ACCESS_KEY = credentials('jenkins-aws-secret-access-key')
+    }
+    stages {
+        if(env.BRANCH_NAME == 'master'){
             stage('Deploy') {
                 steps {
                     bat "aws elasticbeanstalk update-environment --profile credibanco-dev --application-name credibanco --environment-id e-ckzpcrjxji"
                 }
             }
         }
-    } else {
-        stages {
+    }
+    stages {
+        if(env.BRANCH_NAME == 'develop'){
             stage('Unit Test') {
                 steps {
                     bat "npm install"
