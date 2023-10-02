@@ -1,0 +1,17 @@
+{
+  "AWSEBDockerrunVersion": "1",
+  "authentication": {    
+    "bucket": "credibanco-config",    
+    "key": ".dockercfg"  
+  },
+  "Image": {
+    "Name": "santiagoapps4/credibanco",
+    "Update": "true"
+  },
+  "Ports": [
+    {
+      "ContainerPort": 80,
+      "HostPort": 80
+    }
+  ]
+}
