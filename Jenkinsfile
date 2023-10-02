@@ -2,19 +2,15 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
-            steps {
-                sh "ng build"
-            }
-        }
         stage('Test') {
             steps {
+                sh "npm install"
                 sh "ng test"
             }
         }
         stage('Deploy') {
             steps {
-                println "Static Codes"
+                sh "docker build -t santiagoapps4/credibanco"
             }
         }
     }
