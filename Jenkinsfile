@@ -5,12 +5,12 @@ pipeline {
         stage('Unit Test') {
             steps {
                 bat "npm install"
-                bat "ng test"
+                bat "ng test --no-watch --code-coverage"
             }
         }
         stage('Static Code Analysis') {
             steps {
-                bat "npm run sonar"
+                bat "sonar-scanner"
             }
         }
         stage('Deploy') {
