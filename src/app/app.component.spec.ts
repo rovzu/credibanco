@@ -20,4 +20,11 @@ describe('AppComponent', () => {
     const app = fixture.componentInstance;
     expect(app.title).toEqual('credibanco');
   });
+
+  it('Validar la hora y fecha actual', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    fixture.detectChanges();
+    expect(app.currentDateTime).toBeTruthy();
+  });
 });
