@@ -10,7 +10,7 @@ pipeline {
         }
         stage('Static Code Analysis') {
             steps {
-                bat "npm run sonar"
+                bat "sonar-scanner"
             }
         }
         stage('Deploy') {
