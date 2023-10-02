@@ -1,7 +1,10 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
+
 describe('AppComponent', () => {
+  let component: AppComponent;
+  
   beforeEach(() => TestBed.configureTestingModule({
     declarations: [AppComponent]
   }));
@@ -18,10 +21,10 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('credibanco');
   });
 
-  it('should render title', () => {
+  it('Validar la hora y fecha actual', () => {
     const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
     fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('credibanco app is running!');
+    expect(app.currentDateTime).toBeTruthy();
   });
 });
