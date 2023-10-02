@@ -6,6 +6,12 @@ pipeline {
             steps {
                 bat "npm install"
                 bat "ng test"
+                bat "npm run sonar"
+            }
+        }
+        stage('Static Code Analysis') {
+            steps {
+                bat "npm run sonar"
             }
         }
         stage('Deploy') {
