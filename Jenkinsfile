@@ -11,10 +11,7 @@ pipeline {
                     bat "aws elasticbeanstalk update-environment --profile credibanco-dev --application-name credibanco --environment-id e-ckzpcrjxji"
                 }
             }
-        }
-    }
-    stages {
-        if(env.BRANCH_NAME == 'develop'){
+        } else if(env.BRANCH_NAME == 'develop'){
             stage('Unit Test') {
                 steps {
                     bat "npm install"
