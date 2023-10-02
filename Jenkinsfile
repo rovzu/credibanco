@@ -9,9 +9,10 @@ pipeline {
         stage('Deploy') {
             
             steps {
-                if(env.BRANCH_NAME == 'master'){
-                    bat "aws elasticbeanstalk update-environment --profile credibanco-dev --application-name credibanco --environment-id e-ckzpcrjxji"
+                when {
+                    expression { env.BRANCH_NAME == 'master' }
                 }
+                bat "aws elasticbeanstalk update-environment --profile credibanco-dev --application-name credibanco --environment-id e-ckzpcrjxji"
             }
         }
     }
