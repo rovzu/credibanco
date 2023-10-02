@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Deploy') {
             steps {
-                sh "docker build -t santiagoapps4/credibanco"
+                bat "docker build -t santiagoapps4/credibanco ."
             }
         }
     }
